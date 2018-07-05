@@ -4,6 +4,7 @@ import Home from './components/Home/Home.js';
 import NewsList from './components/NewsList/NewsList.js';
 import TechNewsList from './components/TechNews/TechNews.js';
 import ProgrammingNewsList from './components/ProgrammingNews/ProgrammingNews.js';
+import KeywordChart from './components/KeywordChart/KeywordChart.js';
 import { config } from './app.const.js';
 
 class App extends React.Component {
@@ -36,6 +37,9 @@ class App extends React.Component {
                 break;
             case '/programming-news-list':
                 StateComponent = ProgrammingNewsList;
+                break;
+            case '/keywords-bar-chart':
+                StateComponent = KeywordChart;
                 break;
             default:
                 StateComponent = Home;
