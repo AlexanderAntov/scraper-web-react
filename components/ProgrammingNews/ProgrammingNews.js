@@ -1,16 +1,16 @@
 import React from 'react';
 import BaseNewsList from '../BaseNewsList.js';
 
-class TechNewsList extends BaseNewsList {
+class ProgrammingNewsList extends BaseNewsList {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <BaseNewsList urlSuffix={"tech-and-science?images=true"} />
+            <BaseNewsList urlSuffix={"programming?images=true"} />
         );
     }
 }
 
-export default TechNewsList;
+export default ProgrammingNewsList;

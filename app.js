@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Home from './components/Home/Home.js';
 import NewsList from './components/NewsList/NewsList.js';
+import TechNewsList from './components/TechNews/TechNews.js';
+import ProgrammingNewsList from './components/ProgrammingNews/ProgrammingNews.js';
+import { config } from './app.const.js';
 
 class App extends React.Component {
     constructor(props) {
@@ -10,6 +13,8 @@ class App extends React.Component {
         this.state = {
             route: window.location.hash.substr(1)
         };
+
+        this.goToHome = () => window.location.href = config.WEB_APP_URL;
     }
 
     componentDidMount() {
@@ -26,11 +31,22 @@ class App extends React.Component {
             case '/news-list':
                 StateComponent = NewsList;
                 break;
+            case '/tech-news-list':
+                StateComponent = TechNewsList;
+                break;
+            case '/programming-news-list':
+                StateComponent = ProgrammingNewsList;
+                break;
             default:
                 StateComponent = Home;
         }
         return (
-            <StateComponent/>
+            <div>
+                <div class="header">
+                    <span onClick={this.goToHome} class="app-title">Scraper</span>
+                </div>
+                <StateComponent/>
+            </div>
         );
     }
 }
