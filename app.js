@@ -6,6 +6,7 @@ import TechNewsList from './components/TechNews/TechNews.js';
 import ProgrammingNewsList from './components/ProgrammingNews/ProgrammingNews.js';
 import WeatherChart from './components/WeatherChart/WeatherChart.js';
 import KeywordChart from './components/KeywordChart/KeywordChart.js';
+import Summary from './components/Summary/Summary.js';
 import { config } from './app.const.js';
 
 class App extends React.Component {
@@ -13,7 +14,7 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            route: window.location.hash.substr(1)
+            route: null
         };
 
         this.goToHome = () => window.location.href = config.WEB_APP_URL;
@@ -46,7 +47,11 @@ class App extends React.Component {
                 StateComponent = WeatherChart;
                 break;
             default:
-                StateComponent = Home;
+                if (this.state.route && this.state.route.indexOf('/scrape/') > -1) {
+                    StateComponent = Summary;
+                } else {
+                    StateComponent = Home;
+                }
         }
         return (
             <div>

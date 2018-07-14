@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseNewsList from '../BaseNewsList.js';
 
-class NewsList extends BaseNewsList {
+class NewsList extends React.Component {
     constructor(props) {
         super(props);
     }

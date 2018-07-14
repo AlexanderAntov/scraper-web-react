@@ -60,7 +60,7 @@ class NewsItem extends React.Component {
     }
 
     _summarize() {
-
+        window.location.hash = `/scrape/${this.state.model.id}`;
     }
 }
 

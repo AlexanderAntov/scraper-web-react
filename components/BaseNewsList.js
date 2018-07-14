@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchHeader from './SearchHeader/SearchHeader.js';
+import CommandsPalette from './CommandsPalette/CommandsPalette.js';
 import NewsItem from './NewsItem/NewsItem.js';
 import { config } from '../app.const.js';
 
@@ -13,6 +14,7 @@ class BaseNewsList extends React.Component {
         };
 
         this.onSearchValueChange = (value) => this._onSearchValueChange(value);
+        this.filterTopStories = () => this._filterTopStories();
     }
 
     async componentDidMount() {
@@ -31,6 +33,7 @@ class BaseNewsList extends React.Component {
                 <div className="news-list-container">
                     {this.state.newsList.map(item => <NewsItem key={item.id} model={item} />)}
                 </div>
+                <CommandsPalette filterTopStories={this.filterTopStories} />
             </div>
         );
     }
@@ -49,6 +52,27 @@ class BaseNewsList extends React.Component {
         this.setState({
             newsList: result
         });
+    }
+
+    _filterTopStories() {
+        const providerMap = {},
+            topStoriesNewsList = [];
+
+        this.state.newsList.forEach(newsModel => {
+            if (!providerMap[newsModel.provider]) {
+                providerMap[newsModel.provider] = 1;
+            }
+            if (providerMap[newsModel.provider] <= 3 && [4, 6, 7].includes(newsModel.provider)) {
+                topStoriesNewsList.push(newsModel);
+            }
+            providerMap[newsModel.provider]++;
+        });
+
+        this.setState({
+            newsList: topStoriesNewsList
+        });
+
+        return topStoriesNewsList;
     }
 }
 
