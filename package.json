@@ -2,6 +2,7 @@
   "name": "scraper-web-react",
   "scripts": {
     "styles": "lessc --clean-css styles.less styles.min.css",
+    "build": "npm run styles && webpack",
     "start": "npm run styles && webpack-dev-server"
   },
   "dependencies": {

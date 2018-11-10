@@ -1,4 +1,5 @@
 import React from 'react';
+import { SearchHeaderObserverService } from './SearchHeaderObserver.js';
 
 class SearchHeader extends React.Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class SearchHeader extends React.Component {
         };
 
         this.onIconClick = () => this._onIconClick();
-        this.onSearchValueChange = (value) => this._onSearchValueChange(value, props.onChange);
+        this.onSearchValueChange = (value) => this._onSearchValueChange(value);
     }
 
     render() {
@@ -31,10 +32,8 @@ class SearchHeader extends React.Component {
         });
     }
 
-    _onSearchValueChange(value, onChangeCallback) {
-        if (onChangeCallback) {
-            onChangeCallback(value);
-        }
+    _onSearchValueChange(value) {
+        SearchHeaderObserverService.trigger(value);
     }
 }
 

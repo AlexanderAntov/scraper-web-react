@@ -1,5 +1,6 @@
 import React from 'react';
 import BaseNewsList from '../BaseNewsList.js';
+import { NewsListConst } from '../NewsListConst.js';
 
 class NewsList extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class NewsList extends React.Component {
 
     render() {
         return (
-            <BaseNewsList urlSuffix={"news?images=true"} />
+            <BaseNewsList urlSuffix={NewsListConst.NEWS.urlSuffix} />
         );
     }
 }

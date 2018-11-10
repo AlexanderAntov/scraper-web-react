@@ -2,6 +2,7 @@ import React from 'react';
 import SearchHeader from './SearchHeader/SearchHeader.js';
 import CommandsPalette from './CommandsPalette/CommandsPalette.js';
 import NewsItem from './NewsItem/NewsItem.js';
+import { SearchHeaderObserverService } from './SearchHeader/SearchHeaderObserver.js';
 import { config } from '../app.const.js';
 
 class BaseNewsList extends React.Component {
@@ -18,6 +19,8 @@ class BaseNewsList extends React.Component {
     }
 
     async componentDidMount() {
+        SearchHeaderObserverService.subscribe(this.onSearchValueChange);
+
         const result = await fetch(`${config.API_URL}/${this.state.urlSuffix}`);
         const newsList = await result.json();
         this.pristineNewsList = newsList;
@@ -26,10 +29,14 @@ class BaseNewsList extends React.Component {
         });
     }
 
+    componentWillUnmount() {
+        SearchHeaderObserverService.unSubscribe(this.onSearchValueChange);
+    }
+
     render() {
         return (
             <div>
-                <SearchHeader onChange={this.onSearchValueChange} />
+                <SearchHeader />
                 <div className="news-list-container">
                     {this.state.newsList.map(item => <NewsItem key={item.id} model={item} />)}
                 </div>
