@@ -10,6 +10,9 @@ class Summary extends React.Component {
             summary: null,
             text: null,
             percentOfOriginalText: null,
+            readability: 0,
+            keywords: [],
+            loading: true,
             showSummary: true
         };
         this.toggleSummary = () => this._toggleSummary();
@@ -22,26 +25,48 @@ class Summary extends React.Component {
             (1 - newsModel.summary.length / newsModel.text.length) * 100
         );
         this.setState({
+            loading: false,
             summary: newsModel.summary,
             text: newsModel.text,
-            percentOfOriginalText: percentOfOriginalText
+            percentOfOriginalText: percentOfOriginalText,
+            readability: Math.round(newsModel.readabilityScore),
+            keywords: newsModel.keywords
         });
     }
 
     render() {
         return (
-            <div>
-                <div className={'col-xs-12' + (this.state.showSummary ? '' : ' hidden')}>
-                    <span>{this.state.summary}</span>
-                    <br/><br/>
-                    <button onClick={this.toggleSummary}>Read full text</button>
-                    <br/><br/>
-                    <strong>Text was reduced to {this.state.percentOfOriginalText}% from its original</strong>
+            <div className="summary-container">
+                <div className={this.state.loading ? '' : ' hidden'}>
+                    <h5>Loading ...</h5>
                 </div>
-                <div className={'col-xs-12' + (this.state.showSummary ? ' hidden' : '')}>
-                    <span>{this.state.text}</span>
-                    <br/><br/>
-                    <button onClick={this.toggleSummary}>Read summary</button>
+                <div className={this.state.loading ? ' hidden' : ''}>
+                    <div className={'col-xs-12' + (this.state.showSummary ? '' : ' hidden')}>
+                        <div className="row">
+                            <p>{this.state.summary}</p>
+                        </div>
+                        <div className="row">
+                            <strong>Text was reduced to {this.state.percentOfOriginalText}% from its original</strong>
+                        </div>
+                        <div className="row">
+                            <strong>Readability:</strong><span>{this.state.readability}</span>
+                        </div>
+                        <div className="row">
+                            <strong>Keywords:</strong><br/>
+                            {this.state.keywords.map(keyword => <div><span>{keyword}</span><br/></div>)}
+                        </div>
+                        <div className="row">
+                            <button onClick={this.toggleSummary}>Read full text</button>
+                        </div>
+                    </div>
+                    <div className={'col-xs-12' + (this.state.showSummary ? ' hidden' : '')}>
+                        <div className="row">
+                            <p>{this.state.text}</p>
+                        </div>
+                        <div className="row">
+                            <button onClick={this.toggleSummary}>Read summary</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
