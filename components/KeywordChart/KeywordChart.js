@@ -21,7 +21,7 @@ class KeywordChart extends React.Component {
     render() {
         return (
             <div id="container">
-                <div class="col-xs-12">
+                <div className="col-xs-12">
                     <div id="keywords-chart-container"></div>
                 </div>
             </div>
