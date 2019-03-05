@@ -3,7 +3,7 @@
   "scripts": {
     "styles": "lessc --clean-css styles.less styles.min.css",
     "build": "npm run styles && webpack",
-    "start": "npm run styles && webpack-dev-server"
+    "start": "npm run build && python -m http.server 3001"
   },
   "dependencies": {
     "react": "16.6.3",
@@ -17,7 +17,6 @@
     "path": "0.12.7",
     "webpack": "4.25.1",
     "webpack-cli": "3.1.2",
-    "webpack-dev-server": "3.1.10",
     "bootstrap": "3.3.7",
     "less": "3.8.1",
     "less-plugin-clean-css": "1.5.1",

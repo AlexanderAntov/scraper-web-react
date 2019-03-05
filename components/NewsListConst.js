@@ -1,12 +1,13 @@
+const isMobileDevice = typeof window.orientation !== 'undefined' || navigator.userAgent.indexOf('IEMobile') !== -1;
 const NewsListConst = {
     NEWS: {
-        urlSuffix: 'news?images=true'
+        urlSuffix: `news?images=${!isMobileDevice}`
     },
     TECH: {
-        urlSuffix: 'tech-and-science?images=true'
+        urlSuffix: `tech-and-science?images=${!isMobileDevice}`
     },
     PROGRAMMING: {
-        urlSuffix: 'programming?images=true'
+        urlSuffix: `programming?images=${!isMobileDevice}`
     }
 };
 
