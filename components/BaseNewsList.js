@@ -49,9 +49,11 @@ class BaseNewsList extends React.Component {
         let result = null;
 
         if (value) {
-            result =  this.pristineNewsList.filter(
-                item => item.title.toLowerCase().includes(value) || item.info.toLowerCase().includes(value)
-            );
+            const lowerValue = value.toLowerCase();
+            result =  this.pristineNewsList.filter(item => {
+                return item.title.toLowerCase().indexOf(lowerValue) > -1 ||
+                    item.info.toLowerCase().indexOf(lowerValue) > -1;
+            });
         } else {
             result = this.pristineNewsList;
         }

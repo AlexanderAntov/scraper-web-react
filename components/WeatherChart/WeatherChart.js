@@ -1,4 +1,5 @@
 import React from 'react';
+import Highcharts from 'highcharts';
 import { config } from '../../app.const.js';
 
 class WeatherChart extends React.Component {

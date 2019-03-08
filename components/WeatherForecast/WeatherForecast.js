@@ -1,4 +1,5 @@
 import React from 'react';
+import Highcharts from 'highcharts';
 import { WeatherIconsMap } from './WeatherIconsMap.js';
 import { config } from '../../app.const.js';
 

@@ -8,16 +8,13 @@ module.exports = {
       publicPath: '/',
       filename: 'bundle.js'
   },
-  devServer: {
-      contentBase: path.resolve(__dirname, '.')
-  },
   module: {
     rules: [
-		{
+		  {
 		    test: /\.js$/,
-            exclude: /node_modules/,
-            loaders: ['babel-loader']
-        }
-	]
+        exclude: /node_modules\/(?!(highcharts)\/).*/,
+        loaders: ['babel-loader']
+      }
+	  ]
   }
 };
