@@ -24,7 +24,7 @@ class Home extends React.Component {
         return (
             <div className="col-xs-12 content-strip">
                 {this.state.weatherDataList.map(item =>
-                    <div className="functional-tile">
+                    <div key={item.dt} className="functional-tile">
                         <div className="weather-item">
                             <div className="icon-container">
                                 <i className={this._getIconByWeatherCodeId(item)}></i>

@@ -14,7 +14,7 @@ class Home extends React.Component {
             <div className="home-container">
                 <div className="col-xs-12 content-strip">
                     {NavigationTilesConst.map(tile =>
-                        <div className="functional-tile" onClick={() => this.goToState(tile.state)}>
+                        <div key={tile.id} className="functional-tile" onClick={() => this.goToState(tile.state)}>
                             <div className="navigation-item">
                                 <i className={tile.icon}></i>
                                 <span>{tile.title}</span>
