@@ -21,8 +21,22 @@ class BaseNewsList extends React.Component {
     async componentDidMount() {
         SearchHeaderObserverService.subscribe(this.onSearchValueChange);
 
-        const result = await fetch(`${config.API_URL}/${this.state.urlSuffix}`);
-        const newsList = await result.json();
+        const newsListPromise = await fetch(`${config.API_URL}/${this.state.urlSuffix}`);
+        const providersEnumPromise = await fetch(`${config.API_URL}/news-providers`);
+        const newsList = await newsListPromise.json();
+        const providersEnum = await providersEnumPromise.json();
+
+        for (let key in providersEnum) {
+            if (providersEnum.hasOwnProperty(key)) {
+                const provider = providersEnum[key];
+                newsList.forEach(item => {
+                    if (item.provider === provider.id) {
+                        item.providerName = provider.value;
+                    }
+                });
+            }
+        }
+
         this.pristineNewsList = newsList;
         this.setState({
             newsList: newsList

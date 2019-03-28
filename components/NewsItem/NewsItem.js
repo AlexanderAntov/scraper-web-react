@@ -52,7 +52,7 @@ class NewsItem extends React.Component {
                         <span>{this.state.model.dateTime}</span>
                     </div>
                     <div className="provider-container">
-                        <span>{this.state.model.provider}</span>
+                        <span>{this.state.model.providerName}</span>
                     </div>
                 </div>
             </div>
