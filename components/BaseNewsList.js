@@ -3,7 +3,7 @@ import SearchHeader from './SearchHeader/SearchHeader.js';
 import CommandsPalette from './CommandsPalette/CommandsPalette.js';
 import NewsItem from './NewsItem/NewsItem.js';
 import { SearchHeaderObserverService } from './SearchHeader/SearchHeaderObserver.js';
-import { config } from '../app.const.js';
+import { newsService } from './http/NewsService.js';
 
 class BaseNewsList extends React.Component {
     constructor(props) {
@@ -21,10 +21,8 @@ class BaseNewsList extends React.Component {
     async componentDidMount() {
         SearchHeaderObserverService.subscribe(this.onSearchValueChange);
 
-        const newsListPromise = await fetch(`${config.API_URL}/${this.state.urlSuffix}`);
-        const providersEnumPromise = await fetch(`${config.API_URL}/news-providers`);
-        const newsList = await newsListPromise.json();
-        const providersEnum = await providersEnumPromise.json();
+        const newsList = await newsService.getNewsList(this.state.urlSuffix);
+        const providersEnum = await newsService.getNewsProvidersList();
 
         for (let key in providersEnum) {
             if (providersEnum.hasOwnProperty(key)) {

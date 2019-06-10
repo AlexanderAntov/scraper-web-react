@@ -1,6 +1,6 @@
 import React from 'react';
 import Highcharts from 'highcharts';
-import { config } from '../../app.const.js';
+import { weatherService } from '../http/WeatherService.js';
 
 class WeatherChart extends React.Component {
     constructor(props) {
@@ -8,8 +8,7 @@ class WeatherChart extends React.Component {
     }
 
     async componentDidMount() {
-        const result = await fetch(`${config.API_URL}/weather-raw`);
-        const weatherData = await result.json();
+        const weatherData = await weatherService.getRawData();
         const dataModel = {
             datesList: [],
             minValuesList: [],

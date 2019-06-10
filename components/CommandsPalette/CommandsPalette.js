@@ -1,5 +1,5 @@
 import React from 'react';
-import { config } from '../../app.const.js';
+import { weatherService } from '../http/WeatherService.js';
 
 class CommandsPalette extends React.Component {
     constructor(props) {
@@ -95,11 +95,9 @@ class CommandsPalette extends React.Component {
 
         window.utterances = [];
 
-        fetch(`${config.API_URL}/weather-raw`).then(response => {
-            if (response) {
-                response.json().then(weatherData => {
-                    createWeatherSummary(weatherData)
-                });
+        weatherService.getRawData().then(data => {
+            if (data) {
+                createWeatherSummary(data);
             } else {
                 this._readTopStories(filterCallback);
             }

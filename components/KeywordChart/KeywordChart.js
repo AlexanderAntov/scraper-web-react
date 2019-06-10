@@ -1,5 +1,6 @@
 import React from 'react';
-import { config } from '../../app.const.js';
+import Highcharts from 'highcharts';
+import { newsService } from '../http/NewsService.js';
 
 class KeywordChart extends React.Component {
     constructor(props) {
@@ -7,8 +8,7 @@ class KeywordChart extends React.Component {
     }
 
     async componentDidMount() {
-        const result = await fetch(`${config.API_URL}/news-keywords`);
-        const keywordData = await result.json();
+        const keywordData = await newsService.getNewsKeywords();
         const localKeywordData = [];
 
         keywordData.slice(0, 50).forEach((model) => {

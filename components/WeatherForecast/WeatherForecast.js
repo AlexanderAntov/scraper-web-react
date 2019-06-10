@@ -1,7 +1,7 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import { WeatherIconsMap } from './WeatherIconsMap.js';
-import { config } from '../../app.const.js';
+import { weatherService } from '../http/WeatherService.js';
 
 class Home extends React.Component {
     constructor(props) {
@@ -13,8 +13,7 @@ class Home extends React.Component {
     }
 
     async componentDidMount() {
-        const result = await fetch(`${config.API_URL}/weather-raw`);
-        const weatherData = await result.json();
+        const weatherData = await weatherService.getRawData();
         this.setState({
             weatherDataList: weatherData.list.slice(0, 5)
         });

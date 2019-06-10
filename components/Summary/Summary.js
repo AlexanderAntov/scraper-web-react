@@ -1,5 +1,5 @@
 import React from 'react';
-import { config } from '../../app.const.js';
+import { newsService } from '../http/NewsService.js';
 
 class Summary extends React.Component {
     constructor(props) {
@@ -19,8 +19,7 @@ class Summary extends React.Component {
     }
 
     async componentDidMount() {
-        const result = await fetch(`${config.API_URL}/scrape/${this.state.id}`);
-        const newsModel = await result.json();
+        const newsModel = await newsService.scrape(this.state.id);
         const percentOfOriginalText = Math.round(
             (1 - newsModel.summary.length / newsModel.text.length) * 100
         );
