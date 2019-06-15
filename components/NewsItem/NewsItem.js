@@ -6,7 +6,7 @@ class NewsItem extends React.Component {
 
         this.state = {
             model: props.model,
-            hasSummary: props.model.provider === 4 || props.model.provider === 6
+            hasSummary: props.model.provider > 3 && props.model.provider !== 5
         };
         this.newsItemRef = React.createRef();
 
