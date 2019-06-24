@@ -21,4 +21,4 @@ class Observer {
     }
 }
 
-export default Observer;
+export { Observer };

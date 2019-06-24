@@ -1,5 +1,5 @@
 import React from 'react';
-import { newsService } from '../http/NewsService.js';
+import { newsService } from '../api/NewsService.js';
 
 class Summary extends React.Component {
     constructor(props) {
@@ -84,4 +84,4 @@ class Summary extends React.Component {
     }
 }
 
-export default Summary;
+export { Summary };

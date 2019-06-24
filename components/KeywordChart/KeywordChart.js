@@ -1,6 +1,6 @@
 import React from 'react';
 import Highcharts from 'highcharts';
-import { newsService } from '../http/NewsService.js';
+import { newsService } from '../api/NewsService.js';
 
 class KeywordChart extends React.Component {
     constructor(props) {
@@ -77,4 +77,4 @@ class KeywordChart extends React.Component {
     }
 }
 
-export default KeywordChart;
+export { KeywordChart };

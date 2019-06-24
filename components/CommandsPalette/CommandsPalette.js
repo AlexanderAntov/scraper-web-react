@@ -1,5 +1,5 @@
 import React from 'react';
-import { weatherService } from '../http/WeatherService.js';
+import { weatherService } from '../api/WeatherService.js';
 
 class CommandsPalette extends React.Component {
     constructor(props) {
@@ -105,4 +105,4 @@ class CommandsPalette extends React.Component {
     }
 }
 
-export default CommandsPalette;
+export { CommandsPalette };

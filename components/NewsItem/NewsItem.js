@@ -9,8 +9,6 @@ class NewsItem extends React.Component {
             hasSummary: props.model.provider > 3 && props.model.provider !== 5
         };
         this.newsItemRef = React.createRef();
-
-        this.summarize = () => this._summarize();
     }
 
     componentDidMount() {
@@ -32,10 +30,10 @@ class NewsItem extends React.Component {
     render() {
         return (
             <div ref={this.newsItemRef} className="item-container">
-                <div onClick={this.summarize}
-                     className={ 'summarize-action' + (this.state.hasSummary ? '' : ' hidden') }>
+                <a href={`../#/scrape/${this.state.model.id}`}
+                    className={ 'summarize-action' + (this.state.hasSummary ? '' : ' hidden') }>
                     <i className="fa fa-filter"></i>
-                </div>
+                </a>
                 <div className={ 'pull-left image-container' + (this.state.model.image ? '' : ' hidden') }>
                     <img src={this.state.model.image}/>
                 </div>
@@ -58,10 +56,6 @@ class NewsItem extends React.Component {
             </div>
         );
     }
-
-    _summarize() {
-        window.location.hash = `/scrape/${this.state.model.id}`;
-    }
 }
 
-export default NewsItem;
+export { NewsItem };

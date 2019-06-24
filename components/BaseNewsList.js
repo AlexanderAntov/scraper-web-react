@@ -1,9 +1,9 @@
 import React from 'react';
-import SearchHeader from './SearchHeader/SearchHeader.js';
-import CommandsPalette from './CommandsPalette/CommandsPalette.js';
-import NewsItem from './NewsItem/NewsItem.js';
+import { SearchHeader } from './SearchHeader/SearchHeader.js';
+import { CommandsPalette } from './CommandsPalette/CommandsPalette.js';
+import { NewsItem } from './NewsItem/NewsItem.js';
 import { SearchHeaderObserverService } from './SearchHeader/SearchHeaderObserver.js';
-import { newsService } from './http/NewsService.js';
+import { newsService } from './api/NewsService.js';
 
 class BaseNewsList extends React.Component {
     constructor(props) {
@@ -97,4 +97,4 @@ class BaseNewsList extends React.Component {
     }
 }
 
-export default BaseNewsList;
+export { BaseNewsList };

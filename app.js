@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './components/Home/Home.js';
-import NewsList from './components/NewsList/NewsList.js';
-import TechNewsList from './components/TechNews/TechNews.js';
-import ProgrammingNewsList from './components/ProgrammingNews/ProgrammingNews.js';
-import WeatherChart from './components/WeatherChart/WeatherChart.js';
-import KeywordChart from './components/KeywordChart/KeywordChart.js';
-import Summary from './components/Summary/Summary.js';
+import { Home } from './components/Home/Home.js';
+import { NewsList } from './components/NewsList/NewsList.js';
+import { TechNewsList } from './components/TechNews/TechNews.js';
+import { ProgrammingNewsList } from './components/ProgrammingNews/ProgrammingNews.js';
+import { WeatherChart } from './components/WeatherChart/WeatherChart.js';
+import { KeywordChart } from './components/KeywordChart/KeywordChart.js';
+import { Summary } from './components/Summary/Summary.js';
 import { config } from './app.const.js';
 
 class App extends React.Component {
@@ -55,8 +55,8 @@ class App extends React.Component {
         }
         return (
             <div>
-                <div class="header">
-                    <span onClick={this.goToHome} class="app-title">Scraper</span>
+                <div className="header">
+                    <span onClick={this.goToHome} className="app-title">Scraper</span>
                 </div>
                 <StateComponent/>
             </div>

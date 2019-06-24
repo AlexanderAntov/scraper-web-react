@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseNewsList from '../BaseNewsList.js';
+import { BaseNewsList } from '../BaseNewsList.js';
 import { NewsListConst } from '../NewsListConst.js';
 
 function ProgrammingNewsList() {
@@ -8,4 +8,4 @@ function ProgrammingNewsList() {
     );
 }
 
-export default ProgrammingNewsList;
+export { ProgrammingNewsList };

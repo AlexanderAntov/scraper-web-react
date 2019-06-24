@@ -37,4 +37,4 @@ class SearchHeader extends React.Component {
     }
 }
 
-export default SearchHeader;
+export { SearchHeader };

@@ -1,6 +1,6 @@
 import React from 'react';
 import Highcharts from 'highcharts';
-import { weatherService } from '../http/WeatherService.js';
+import { weatherService } from '../api/WeatherService.js';
 
 class WeatherChart extends React.Component {
     constructor(props) {
@@ -162,4 +162,4 @@ class WeatherChart extends React.Component {
     }
 }
 
-export default WeatherChart;
+export { WeatherChart };
