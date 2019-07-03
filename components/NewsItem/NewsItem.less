@@ -1,37 +1,48 @@
 .item-container {
+    position: relative;
     float: left;
     margin: 10px;
     border: 1px solid lightgrey;
-    padding: 10px 1px 10px 0;
+    padding: 10px 1px 5px 0;
     height: 300px;
     background-color: white;
+    overflow: hidden;
 
     &:hover {
         box-shadow: 0.1px 0.1px 0.1px 0.1px rgba(0,0,0,0.4);
     }
 
     .summarize-action {
-        float: right;
+        position: absolute;
         cursor: pointer;
-        margin-right: 5px;
+        top: 5px;
+        right: 5px;
 
         i {
             font-size: 17px;
-            color: black;
+            color: @text-color;
         }
     }
 
     .image-container {
+        width: 100%;
         margin-bottom: 20px;
+        padding-left: 10px;
+        min-height: 100px;
 
         img {
             max-height: 100px;
             max-width: 200px;
-            margin-left: 25%;
         }
     }
 
     .text-container {
+        .side-pad-10;
+
+        .title {
+            font-weight: bold;
+        }
+
         .short-info {
             white-space: pre-line;
         }
@@ -44,7 +55,7 @@
             margin-bottom: 10px;
 
             a {
-                color: black;
+                color: @text-color;
                 font-size: 18px;
                 text-decoration: none;
             }
@@ -58,7 +69,7 @@
             margin-bottom: 10px;
 
             a {
-                color: black;
+                color: @text-color;
                 font-size: 18px;
                 text-decoration: none;
             }
@@ -66,8 +77,8 @@
     }
 
     .item-footer {
-        padding-left: 10px;
-        margin-right: 10px;
+        .side-pad-10;
+        clear: both;
         min-height: 20px;
         border-top: 1px solid #e8e8e8;
 

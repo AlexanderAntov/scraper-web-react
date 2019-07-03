@@ -6,7 +6,7 @@ class NewsItem extends React.Component {
 
         this.state = {
             model: props.model,
-            hasSummary: props.model.provider > 3 && props.model.provider !== 5
+            hasSummary: [4, 6, 7, 8].indexOf(props.model.provider) > -1
         };
         this.newsItemRef = React.createRef();
     }
@@ -23,7 +23,7 @@ class NewsItem extends React.Component {
             columnCount = 2;
         }
 
-        const columnWidth = (window.innerWidth - (columnCount + 2) * 20) / columnCount;
+        const columnWidth = (window.innerWidth - (columnCount + 3) * 20) / columnCount;
         this.newsItemRef.current.style.width = `${columnWidth}px`;
     }
 
@@ -37,7 +37,7 @@ class NewsItem extends React.Component {
                 <div className={ 'pull-left image-container' + (this.state.model.image ? '' : ' hidden') }>
                     <img src={this.state.model.image}/>
                 </div>
-                <div className="col-xs-12 pull-left text-container">
+                <div className="pull-left text-container">
                     <div className="title">
                         <a href={this.state.model.url}>{this.state.model.title}</a>
                     </div>
@@ -45,7 +45,7 @@ class NewsItem extends React.Component {
                         <p>{this.state.model.info}</p>
                     </div>
                 </div>
-                <div className="col-xs-12 item-footer">
+                <div className="item-footer">
                     <div className="date-container">
                         <span>{this.state.model.dateTime}</span>
                     </div>

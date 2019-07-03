@@ -4,17 +4,17 @@ const path = require('path');
 module.exports = {
   entry: path.resolve(__dirname, 'app'),
   output: {
-      path: __dirname + '/dist',
+      path: __dirname + '/build',
       publicPath: '/',
       filename: 'bundle.js'
   },
   module: {
-    rules: [
-		  {
-		    test: /\.js$/,
-        exclude: /node_modules\/(?!(highcharts)\/).*/,
-        loaders: ['babel-loader']
-      }
-	  ]
+      rules: [
+          {
+              test: /\.js$/,
+              exclude: /node_modules\/(?!(highcharts)\/).*/,
+              loaders: ['babel-loader']
+          }
+      ]
   }
 };

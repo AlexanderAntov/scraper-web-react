@@ -1,13 +1,19 @@
-@import './node_modules/bootstrap/less/bootstrap.less';
 @import './components/CommandsPalette/CommandsPalette.less';
 @import './components/Home/Home.less';
 @import './components/NewsItem/NewsItem.less';
 @import './components/SearchHeader/SearchHeader.less';
 @import './components/Summary/Summary.less';
 
+@text-color: #515151;
+
+* {
+    font-family: 'open-sans-regular', sans-serif;
+}
+
 body {
     overflow: hidden;
     background-color: #f9f9f9;
+    margin: 0;
 
     .page-content {
         overflow-x: hidden;
@@ -20,17 +26,49 @@ body {
             position: absolute;
             top: 0;
             width: 100%;
-            height: 50px;
+            height: 45px;
             background-color: #08a559;
             padding-top: 5px;
             margin-left: -10px;
     
             .app-title {
-                color: white;
+                color: #fff;
                 font-size: 30px;
+                margin-top: 4px;
                 margin-left: 20px;
                 cursor: pointer;
+                display: inline-block;
             }
         }
     }
+}
+
+.hidden {
+    display: none;
+}
+
+.pull-left {
+    float: left;
+}
+
+.side-pad-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.col-base {
+    .side-pad-10;
+    position: relative;
+    float: left;
+    min-height: 1px;
+}
+
+.col-xs-12 {
+    .col-base;
+    width: 100%;
+}
+
+.row {
+    margin-left: -10px;
+    margin-right: -10px;
 }

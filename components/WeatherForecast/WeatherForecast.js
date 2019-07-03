@@ -28,13 +28,13 @@ class WeatherForecast extends React.Component {
                                 <i className={this._getIconByWeatherCodeId(item)}></i>
                             </div>
                             <div className="stats-container">
-                                <div className="col-xs-12">
+                                <div>
                                     {this._getFormattedDate(item.dt)}
                                 </div>
-                                <div className="col-xs-12">
+                                <div>
                                     <span>{item.weather[0].description}</span>
                                 </div>
-                                <div className="col-xs-12 temperature">
+                                <div className="temperature">
                                     <span>{Math.round(item.temp.min)}</span>/<span>{Math.round(item.temp.max)}</span>
                                 </div>
                             </div>
