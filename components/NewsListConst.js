@@ -11,4 +11,4 @@ const NewsListConst = {
     }
 };
 
-export { NewsListConst };
+export { NewsListConst, isMobileDevice };

@@ -1,11 +1,16 @@
 import React from 'react';
+import { isMobileDevice } from '../NewsListConst.js';
 
 class NewsItem extends React.Component {
     constructor(props) {
         super(props);
 
+        const localModel = { ...props.model };
+        if (isMobileDevice) {
+            localModel.image = null;
+        }
         this.state = {
-            model: props.model,
+            model: localModel,
             hasSummary: [4, 6, 7, 8].indexOf(props.model.provider) > -1
         };
         this.newsItemRef = React.createRef();

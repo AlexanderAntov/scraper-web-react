@@ -2,8 +2,9 @@
   "name": "scraper-web-react",
   "scripts": {
     "styles": "lessc --clean-css styles.less styles.min.css",
-    "build": "npm run styles && webpack",
-    "start": "npm run build && python -m http.server 3001"
+    "build:prod": "npm run styles && webpack --mode=production",
+    "build:dev": "npm run styles && webpack --mode=development",
+    "start": "npm run build:prod && python -m http.server 3001"
   },
   "dependencies": {
     "react": "16.8.6",
