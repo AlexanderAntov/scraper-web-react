@@ -10,12 +10,20 @@ class NewsService {
         });
     }
 
-    getNewsKeywords(useCache = true) {
-        return apiService.get({
+    async getNewsKeywords(limit, useCache = true) {
+        const localKeywordList = [];
+        const keywordList = await apiService.get({
             url: `${config.API_URL}/news-keywords`,
             cacheKey: 'newsKeywords',
             useCache
         });
+        if (limit) {
+            keywordList.slice(0, limit).forEach((model) => {
+                localKeywordList.push([model.word, model.score]);
+            });
+            return localKeywordList;
+        }
+        return keywordList;
     }
 
     getNewsProvidersList(useCache = true) {

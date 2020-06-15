@@ -32,29 +32,35 @@ class App extends React.Component {
 
     render() {
         let StateComponent;
-        switch (this.state.route) {
-            case '/news-list':
-                StateComponent = NewsList;
-                break;
-            case '/tech-news-list':
-                StateComponent = TechNewsList;
-                break;
-            case '/programming-news-list':
-                StateComponent = ProgrammingNewsList;
-                break;
-            case '/keywords-bar-chart':
-                StateComponent = KeywordChart;
-                break;
-            case '/weather-line-chart':
-                StateComponent = WeatherChart;
-                break;
-            default:
-                if (this.state.route && this.state.route.indexOf('/scrape/') > -1) {
-                    StateComponent = Summary;
-                } else {
-                    StateComponent = Home;
-                }
+
+        if (/\/news-list\?filter=*/.test(this.state.route)) {
+            StateComponent = NewsList;
+        } else {
+            switch (this.state.route) {
+                case '/news-list':
+                    StateComponent = NewsList;
+                    break;
+                case '/tech-news-list':
+                    StateComponent = TechNewsList;
+                    break;
+                case '/programming-news-list':
+                    StateComponent = ProgrammingNewsList;
+                    break;
+                case '/keywords-bar-chart':
+                    StateComponent = KeywordChart;
+                    break;
+                case '/weather-line-chart':
+                    StateComponent = WeatherChart;
+                    break;
+                default:
+                    if (this.state.route && this.state.route.indexOf('/scrape/') > -1) {
+                        StateComponent = Summary;
+                    } else {
+                        StateComponent = Home;
+                    }
+            }
         }
+
         return (
             <div>
                 <div className="header">

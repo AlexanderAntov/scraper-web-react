@@ -8,14 +8,8 @@ class KeywordChart extends React.Component {
     }
 
     async componentDidMount() {
-        const keywordData = await newsService.getNewsKeywords();
-        const localKeywordData = [];
-
-        keywordData.slice(0, 50).forEach((model) => {
-            localKeywordData.push([model.word, model.score]);
-        });
-
-        this._initChart(localKeywordData);
+        const keywords = await newsService.getNewsKeywords(50).map(model => [model.word, model.score]);
+        this._initChart(keywords);
     }
 
     render() {

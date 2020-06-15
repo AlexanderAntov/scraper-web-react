@@ -16,5 +16,6 @@ module.exports = {
               loaders: ['babel-loader']
           }
       ]
-  }
+  },
+  performance: { hints: false }
 };

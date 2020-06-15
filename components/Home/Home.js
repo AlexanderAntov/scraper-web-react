@@ -1,5 +1,6 @@
 import React from 'react';
 import { WeatherForecast } from '../WeatherForecast/WeatherForecast.js';
+import { MainTopics } from '../MainTopics/MainTopics.js';
 import { NavigationTilesConst } from './HomeNavigationTilesConst.js';
 
 class Home extends React.Component {
@@ -23,6 +24,7 @@ class Home extends React.Component {
                     }
                 </div>
                 <WeatherForecast />
+                <MainTopics />
             </div>
         );
     }

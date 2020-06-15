@@ -36,9 +36,15 @@ class BaseNewsList extends React.Component {
         }
 
         this.pristineNewsList = newsList;
-        this.setState({
-            newsList: newsList
-        });
+
+        const filter = this._getParameterByName('filter');
+        if (filter) {
+            this._onSearchValueChange(filter);
+        } else {
+            this.setState({
+                newsList: newsList
+            });
+        }
     }
 
     componentWillUnmount() {
@@ -94,6 +100,25 @@ class BaseNewsList extends React.Component {
         });
 
         return topStoriesNewsList;
+    }
+
+    _getParameterByName(name, url) {
+        if (!url) {
+            url = window.location.href;
+        }
+
+        name = name.replace(/[\[\]]/g, '\\$&');
+        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+        const results = regex.exec(url);
+
+        if (!results) {
+            return null;
+        }
+        if (!results[2]) {
+            return '';
+        }
+
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 }
 
