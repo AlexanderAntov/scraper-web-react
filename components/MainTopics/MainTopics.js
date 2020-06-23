@@ -1,5 +1,6 @@
 import React from 'react';
 import { newsService } from '../api/NewsService.js';
+import { config } from '../../app.const.js';
 
 class MainTopics extends React.Component {
     constructor(props) {
@@ -31,7 +32,7 @@ class MainTopics extends React.Component {
     }
 
     _getNewsForKeyword(keyword) {
-        window.location.assign(`http://localhost:3001/#/news-list?filter=${keyword}`);
+        window.location.assign(`${config.WEB_APP_URL}/#/news-list?filter=${keyword}`);
     }
 }
 
