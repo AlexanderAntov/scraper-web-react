@@ -13,7 +13,7 @@ module.exports = {
           {
               test: /\.js$/,
               exclude: /node_modules\/(?!(highcharts)\/).*/,
-              loaders: ['babel-loader']
+              use: ['babel-loader']
           }
       ]
   },
