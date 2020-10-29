@@ -8,7 +8,7 @@ class KeywordChart extends React.Component {
     }
 
     async componentDidMount() {
-        const keywords = await newsService.getNewsKeywords(50).map(model => [model.word, model.score]);
+        const keywords = await newsService.getNewsKeywords(50);
         this._initChart(keywords);
     }
 
