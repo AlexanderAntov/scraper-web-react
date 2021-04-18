@@ -2,13 +2,13 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Home } from './components/Home/Home.js';
-import { NewsList } from './components/NewsList/NewsList.js';
-import { TechNewsList } from './components/TechNews/TechNews.js';
-import { ProgrammingNewsList } from './components/ProgrammingNews/ProgrammingNews.js';
-import { WeatherChart } from './components/WeatherChart/WeatherChart.js';
-import { KeywordChart } from './components/KeywordChart/KeywordChart.js';
-import { Summary } from './components/Summary/Summary.js';
+import { Home } from './components/Home/Home.jsx';
+import { NewsList } from './components/NewsList/NewsList.jsx';
+import { TechNewsList } from './components/TechNews/TechNews.jsx';
+import { ProgrammingNewsList } from './components/ProgrammingNews/ProgrammingNews.jsx';
+import { WeatherChart } from './components/WeatherChart/WeatherChart.jsx';
+import { KeywordChart } from './components/KeywordChart/KeywordChart.jsx';
+import { Summary } from './components/Summary/Summary.jsx';
 import { config } from './app.const.js';
 
 class App extends React.Component {
@@ -16,7 +16,7 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            route: null
+            route: window.location.hash.substr(1)
         };
 
         this.goToHome = () => window.location.href = config.WEB_APP_URL;

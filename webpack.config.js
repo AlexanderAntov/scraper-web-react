@@ -11,7 +11,7 @@ module.exports = {
   module: {
       rules: [
           {
-              test: /\.js$/,
+              test: /\.js|\.jsx$/,
               exclude: /node_modules\/(?!(highcharts)\/).*/,
               use: ['babel-loader']
           }
