@@ -21,7 +21,7 @@
     "regenerator-runtime": "0.13.7",
     "babel-loader": "8.2.2",
     "path": "0.12.7",
-    "webpack": "5.33.2",
+    "webpack": "5.94.0",
     "webpack-cli": "4.6.0",
     "less": "4.1.1",
     "less-plugin-clean-css": "1.5.1"
